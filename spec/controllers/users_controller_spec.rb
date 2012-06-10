@@ -86,5 +86,26 @@ describe UsersController do
     end
   end
 
+  describe "GET 'new'" do
+     it "devrait avoir un champ nom" do
+        get :new
+        response.should have_selector("input[name='user[nom]'][type='text']")
+      end
+
+      it "devrait avoir un champ email" do
+       get :new
+        response.should have_selector("input[name='user[email]'][type='text']")
+      end
+
+      it "devrait avoir un champ mot de passe" do
+       get :new
+        response.should have_selector("input[name='user[password]'][type='password']")
+      end
+
+      it "devrait avoir un champ confirmation du mot de passe" do
+       get :new
+        response.should have_selector("input[name='user[password_confirmation]'][type='password']")
+      end
+  end
 end
  
